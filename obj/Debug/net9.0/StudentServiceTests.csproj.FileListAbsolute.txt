@@ -101,3 +101,4 @@ D:\Diplomado TESTER DE SOFWARE\Modulo 2\StudentServiceTests\obj\Debug\net9.0\ref
 D:\Diplomado TESTER DE SOFWARE\Modulo 2\StudentServiceTests\obj\Debug\net9.0\StudentServiceTests.pdb
 D:\Diplomado TESTER DE SOFWARE\Modulo 2\StudentServiceTests\obj\Debug\net9.0\StudentServiceTests.genruntimeconfig.cache
 D:\Diplomado TESTER DE SOFWARE\Modulo 2\StudentServiceTests\obj\Debug\net9.0\ref\StudentServiceTests.dll
+D:\Diplomado TESTER DE SOFWARE\Modulo 2\StudentServiceTests\obj\Debug\net9.0\StudentServiceTests.sourcelink.json
