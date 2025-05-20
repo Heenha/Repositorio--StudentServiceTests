@@ -1,0 +1,80 @@
+using Xunit;
+
+public class StudentServiceTests
+{
+    private readonly StudentService _service;
+
+    public StudentServiceTests()
+    {
+        _service = new StudentService();
+    }
+
+    [Fact]
+    public void EstudianteConNotaMayorA51_DebeAprobar()
+    {
+        // Arrange
+        var estudiante = new Estudiante { Nota = 60 };
+
+        // Act
+        var resultado = _service.HasApproved(estudiante);
+
+        // Assert
+        Assert.True(resultado);
+    }
+
+    [Fact]
+    public void EstudianteConNotaMenorA51_NoDebeAprobar()
+    {
+        // Arrange
+        var estudiante = new Estudiante { Nota = 40 };
+
+        // Act
+        var resultado = _service.HasApproved(estudiante);
+
+        // Assert
+        Assert.False(resultado);
+    }
+
+    [Fact]
+    public void EstudianteConNotaExactamente51_DebeAprobar()
+    {
+        // Arrange
+        var estudiante = new Estudiante { Nota = 51 };
+
+        // Act
+        var resultado = _service.HasApproved(estudiante);
+
+        // Assert
+        Assert.True(resultado);
+    }
+
+    [Theory]
+    [InlineData("Juan", 60)]
+    [InlineData("Maria", 55)]
+    public void NombreYNotaDelEstudiante_DebenSerCorrectos(string nombre, int nota)
+    {
+        // Arrange
+        var estudiante = new Estudiante { Nombre = nombre, Nota = nota };
+
+        // Act
+        var resultado = _service.HasApproved(estudiante);
+
+        // Assert
+        Assert.Equal(nombre, estudiante.Nombre);
+        Assert.Equal(nota, estudiante.Nota);
+    }
+
+    [Fact]
+    public void EstudianteConNotaMenorA51_NoDebeAprobar_ConCI()
+    {
+        // Arrange
+        var estudiante = new Estudiante { CI = 123456, Nota = 40 };
+
+        // Act
+        var resultado = _service.HasApproved(estudiante);
+
+        // Assert
+        Assert.False(resultado);
+        Assert.Equal(123456, estudiante.CI);
+    }
+}
