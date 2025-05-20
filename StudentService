@@ -1,0 +1,7 @@
+public class StudentService
+  {
+      public bool HasApproved(Estudiante estudiante)
+      {
+          return estudiante.Nota >= 51;
+      }
+  }
